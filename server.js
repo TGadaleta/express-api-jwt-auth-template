@@ -3,6 +3,7 @@ dotenv.config();
 import express from "express";
 const app = express();
 import mongoose from "mongoose";
+import cors from 'cors'
 
 import testJWTRouter from "./controllers/test-jwt.js";
 import userRouter from "./controllers/user.js";
@@ -19,6 +20,7 @@ mongoose.connection.on("connected", () => {
 
 
 app.use(express.json());
+app.use(cors())
 app.use("/test-jwt", testJWTRouter);
 app.use("/users", userRouter);
 app.use("/profiles", profilesRouter)
