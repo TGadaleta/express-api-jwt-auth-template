@@ -17,8 +17,8 @@ mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
-app.use(cors())
 app.use(express.json());
+app.use(cors())
 app.use("/test-jwt", testJWTRouter);
 app.use("/users", userRouter);
 app.use("/profiles", profilesRouter)
