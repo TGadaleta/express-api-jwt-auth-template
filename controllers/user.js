@@ -5,6 +5,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 const router = express.Router();
 
+const SALT_LENGTH = 10
+
 router.post("/signup", async (req, res) => {
   try {
     // Check if the username is already taken
