@@ -4,11 +4,11 @@ import express from "express";
 const app = express();
 import mongoose from "mongoose";
 
-import User from "./models/user.js";
-
 import testJWTRouter from "./controllers/test-jwt.js";
 import userRouter from "./controllers/user.js";
 import profilesRouter from './controllers/profiles.js'
+
+let PORT = process.env.PORT
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -23,6 +23,6 @@ app.use("/profiles", profilesRouter)
 
 // Routes go here
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("The express app is ready!");
 });
