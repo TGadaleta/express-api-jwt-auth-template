@@ -16,12 +16,17 @@ mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
+
+
 app.use(express.json());
 app.use("/test-jwt", testJWTRouter);
 app.use("/users", userRouter);
 app.use("/profiles", profilesRouter)
 
 // Routes go here
+app.get('/', (req, res) => {
+  res.json({message: 'Your app is working'})
+})
 
 app.listen(PORT, () => {
   console.log("The express app is ready!");
